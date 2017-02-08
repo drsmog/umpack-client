@@ -1,3 +1,20 @@
-<p>
-  project-list works!
-</p>
+<button type="button" class="btn btn-success">
+  <i class="fa fa-plus-circle fa-2x"></i>
+</button>
+
+
+
+
+<div class="list-group">
+  <a *ngFor='let project of projectList' href="#" class="list-group-item" (click)="onSelect(project)" [class.active]="project === selectedProject">
+      {{project.name}}
+  </a>
+</div>
+
+
+<div class="panel panel-primary" *ngIf="selectedProject">
+  <div class="panel-heading">{{selectedProject.name}} - Details</div>
+  <div class="panel-body">
+    <input class="form-control" type="text" [(ngModel)]="selectedProject.name">
+  </div>
+</div>
